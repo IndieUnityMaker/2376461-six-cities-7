@@ -23,7 +23,8 @@ export class OfferEntity extends defaultClasses.TimeStamps {
     trim: true,
     required: true,
     maxlength: 100,
-    minlength: 10
+    minlength: 10,
+    type: String
   })
   public title!: string;
 
@@ -31,21 +32,22 @@ export class OfferEntity extends defaultClasses.TimeStamps {
     trim: true,
     required: true,
     maxlength: 1024,
-    minlength: 20
+    minlength: 20,
+    type: String
   })
   public description!: string;
 
-  @prop({ required: true })
+  @prop({ required: true, type: Date })
   public postDate!: Date;
 
   @prop({
     ref: CityEntity,
     required: true,
-    type: () => String
+    type: String
   })
   public cityId!: Ref<City>;
 
-  @prop({ required: true })
+  @prop({ required: true, type: String })
   public previewImage!: string;
 
   @prop({
@@ -64,7 +66,7 @@ export class OfferEntity extends defaultClasses.TimeStamps {
     required: true,
     min: 1,
     max: 5,
-    type: () => Number
+    type: Number
   })
   public rating!: number;
 
@@ -78,27 +80,30 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({
     required: true,
     min: 1,
-    max: 8
+    max: 8,
+    type: Number
   })
   public bedrooms!: number;
 
   @prop({
     required: true,
     min: 1,
-    max: 10
+    max: 10,
+    type: Number
   })
   public maxAdults!: number;
 
   @prop({
     required: true,
     min: 100,
-    max: 100000
+    max: 100000,
+    type: Number
   })
   public price!: number;
 
   @prop({
     required: true,
-    type: () => String,
+    type: String,
     default: [],
     enum: Comfort
   })
